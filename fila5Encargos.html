@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fila1</title>
+    <link rel="stylesheet" href="css/vistaDetalles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+            $("#nav-bar").load("barraNavegacion.html");
+        });
+    </script>
+</head>
+<body>
+<!--barra de navegacion-->
+<div id="nav-bar"></div>
+<table id="detalles">
+    <tr>
+        <th>Tipo de dato</th>
+        <th>Información</th>
+    </tr>
+    <tr>
+        <td>Descripción encargo</td>
+        <td>El envío contiene una patineta pequeña.</td>
+    </tr>
+    <tr>
+        <td>Espacio</td>
+        <td>20x20x20</td>
+    </tr>
+    <tr>
+        <td>Kilos</td>
+        <td>200gr</td>
+    </tr>
+    <tr>
+        <td>Región origen</td>
+        <td>Valparaíso</td>
+    </tr>
+    <tr>
+        <td>Comuna origen</td>
+        <td>Valparaíso</td>
+    </tr>
+    <tr>
+        <td>Región destino</td>
+        <td>Tarapacá</td>
+    </tr>
+    <tr>
+        <td>Comuna destino</td>
+        <td>Huara</td>
+    </tr>
+    <tr>
+        <td>Foto encargo</td>
+        <td><img id="myImg" src="images/imagen5" alt="Imagen Encargo" style="width: 320px;height: 240px"></td>
+    </tr>
+    <tr>
+        <td>Email encargador</td>
+        <td>lara@example.com</td>
+    </tr>
+    <tr>
+        <td>Número celular encargador</td>
+        <td>+56943222234</td>
+    </tr>
+</table>
+<br><a href="verEncargos.html" class="btn btn-info">Volver a encargos</a>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" src="images/imagen5" alt="Imagen Encargo" id="img01">
+    <div id="caption"></div>
+</div>
+<script src="js/modal.js"></script>
+</body>
+</html>
