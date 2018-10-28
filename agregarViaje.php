@@ -14,9 +14,6 @@
             $("#nav-bar").load("barraNavegacion.html");
         });
     </script>
-    <style>
-        .error {color: #FF0000;}
-    </style>
 </head>
 <body>
 <?php include 'validacionAgregarViajeForm.php';?>

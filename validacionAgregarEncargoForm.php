@@ -6,25 +6,42 @@
  * Time: 2:52
  */
 // define variables and set to empty values
-$regionOrigenErr = $comunaOrigenErr = $regionDestinoErr = $comunaDestinoErr
-    = $fechaViajeErr = $espacioDisponibleErr = $kilosDisponiblesErr = $emailViajeroErr
-    = $numeroCelularViajeroErr = "";
-$regionOrigen = $comunaOrigen = $regionDestino = $comunaDestino
-    = $fechaViaje = $espacioDisponible = $kilosDisponibles = $emailViajero
-    = $numeroCelularViajero = "";
+$descripcionEncargoErr = $espacioErr = $kilosErr = $regionOrigenErr
+    = $comunaOrigenErr = $regionDestinoErr = $comunaDestinoErr = $fotoEncargoErr
+    = $emailEncargadorErr = $numeroCelularEncargadorErr = "";
+$descripcionEncargo = $espacio = $kilos = $regionOrigen
+    = $comunaOrigen = $regionDestino = $comunaDestino = $fotoEncargo
+    = $emailEncargador = $numeroCelularEncargador = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $descripcionEncargo = test_input($_POST["descripcion"]);
+    $espacio= test_input($_POST["espacio-solicitado"]);
+    $kilos= test_input($_POST["kilos-solicitados"]);
+    $regionOrigen = test_input($_POST["region-origen"]);
     $comunaOrigen = test_input($_POST["comuna-origen"]);
     $regionDestino = test_input($_POST["region-destino"]);
     $comunaDestino = test_input($_POST["comuna-destino"]);
-    $fechaViaje = test_input($_POST["fecha-viaje"]);
-    $espacioDisponible = test_input($_POST["espacio-disponible"]);
-    $kilosDisponibles = test_input($_POST["kilos-disponibles"]);
-    $emailViajero = test_input($_POST["email"]);
-    $numeroCelularViajero = test_input($_POST["celular"]);
+    $fotoEncargo = test_input($_POST["foto-encargo"]);
+    $emailEncargador = test_input($_POST["email"]);
+    $numeroCelularEncargador = test_input($_POST["celular"]);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["descripcion"])) {
+        $descripcionEncargoErr = "Descripción es requerida.";
+    } else {
+        $descripcionEncargo = test_input($_POST["descripcion"]);
+    }
+    if (!(strcmp($_POST["espacio-solicitado"],"--"))) {
+        $espacioErr = "Espacio es requerido.";
+    } else {
+        $espacio = test_input($_POST["espacio-solicitado"]);
+    }
+    if (!(strcmp($_POST["kilos-solicitados"],"--"))) {
+        $kilosErr = "Especificar kilos.";
+    } else {
+        $kilos = test_input($_POST["kilos-solicitados"]);
+    }
     if (!(strcmp($_POST["region-origen"],"sin-region"))) {
         $regionOrigenErr = "Region es requerida.";
     } else {
@@ -49,30 +66,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $comunaDestino = test_input($_POST["comuna-destino"]);
     }
-    if (empty($_POST["fecha-viaje"])) {
-        $fechaViajeErr = "Fecha es requerida.";
+    if (empty($_POST["foto-encargo"])) {
+        $fotoEncargoErr = "Imagen de encargo es requerida.";
     } else {
-        $fechaViaje = test_input($_POST["fecha-viaje"]);
-    }
-    if (!(strcmp($_POST["espacio-disponible"],"--"))) {
-        $espacioDisponibleErr = "Espacio es requerido.";
-    } else {
-        $espacioDisponible = test_input($_POST["espacio-disponible"]);
-    }
-    if (!(strcmp($_POST["kilos-disponibles"],"--"))) {
-        $kilosDisponiblesErr = "Especificar kilos.";
-    } else {
-        $kilosDisponibles = test_input($_POST["kilos-disponibles"]);
+        $fotoEncargo = test_input($_POST["foto-encargo"]);
     }
     if (empty($_POST["email"])) {
-        $emailViajeroErr = "Email es requerido.";
+        $emailEncargadorErr = "Email es requerido.";
     } else {
-        $emailViajero = test_input($_POST["email"]);
+        $emailEncargador = test_input($_POST["email"]);
     }
     if (empty($_POST["celular"])) {
-        $numeroCelularViajeroErr = "Número celular es requerido.";
+        $numeroCelularEncargadorErr = "Número celular es requerido.";
     } else {
-        $numeroCelularViajero = test_input($_POST["celular"]);
+        $numeroCelularEncargador = test_input($_POST["celular"]);
     }
 }
 
