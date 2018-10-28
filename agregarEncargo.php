@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Agregar Encargo</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/boostrapV4w3cFix.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -24,7 +24,7 @@
         <!--descripcion encargo-->
         <div class="form-group row">
             <label class="control-label" for="descripcion">Descripción encargo:</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion" maxlength="250" placeholder="El encargo es ...">
+            <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="El encargo es ...">
         </div>
         <!--espacio-->
         <div class="form-group row">

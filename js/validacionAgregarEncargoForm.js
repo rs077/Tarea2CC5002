@@ -46,9 +46,13 @@ function validateRegionComunaDestino(region,comuna) {
     return true
 }
 
-function validateFoto(foto) {
+function validateDescripcion(descripcion) {
     if (descripcion == "") {
         alert("Debe añadir una descripcion.");
+        return false
+    }
+    if (descripcion.length > 250) {
+        alert("La descripción no debe exceder los 250 caracteres.");
         return false
     }
     return true
