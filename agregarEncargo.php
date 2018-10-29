@@ -22,7 +22,7 @@
 <!--FORMULARIO AGREGAR ENCARGO-->
 <div id="agregarEncargo" class="container">
     <form name="formAgregarEncargo" id="formAgregarEncargo" class="form-horizontal" onsubmit="return validateForm()"
-          action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+          enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <!--descripcion encargo-->
         <div class="form-group row">
             <label class="control-label" for="descripcion">Descripción encargo:</label>
@@ -93,7 +93,7 @@
         <!--numero celular encargador-->
         <div class="form-group row">
             <label class="control-label" for="celular">Número celular encargador:</label>
-            <input type="text" class="form-control" id="celular" name="celular" placeholder="+569XXXXXXXX">
+            <input type="text" class="form-control" id="celular" name="celular" placeholder="569XXXXXXXX">
             <span class="error">* <?php echo $numeroCelularEncargadorErr;?></span>
         </div>
         <!--boton para enviar formulario-->

@@ -85,7 +85,7 @@ function validateCelular(phone) {
         phone = "";
         alert("El numero de caracteres no permitidos.");
         return false
-    } else if (!(stripped.length == 12)) {
+    } else if (!(stripped.length == 11)) {
         phone = "";
         alert("El celular tiene un largo incorrecto.")
         return false

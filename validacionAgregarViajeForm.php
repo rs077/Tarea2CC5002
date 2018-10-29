@@ -46,11 +46,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $comunaDestinoErr = "Region es requerida.";
     } else if (!(strcmp($_POST["comuna-destino"],"sin-comuna"))) {
         $comunaDestinoErr = "Comuna es requerida.";
+    } else if (!(strcmp($_POST["comuna-origen"], $_POST["comuna-destino"]))) {
+        $comunaDestinoErr = "Comuna de destino no puede ser igual a la de origen.";
     } else {
         $comunaDestino = test_input($_POST["comuna-destino"]);
     }
     if (empty($_POST["fecha-viaje"])) {
         $fechaViajeErr = "Fecha es requerida.";
+    } elseif (!(preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$_POST["fecha-viaje"]))) {
+        $fechaViajeErr = "Fecha debe estar en formato aaaa-mm-dd.";
+    } elseif (!(new DateTime("now") < new DateTime($_POST["fecha-viaje"]))) {
+        $fechaViajeErr = "Fecha de viaje debe ser posterior a la actual.";
     } else {
         $fechaViaje = test_input($_POST["fecha-viaje"]);
     }
@@ -66,11 +72,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($_POST["email"])) {
         $emailViajeroErr = "Email es requerido.";
+    } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        $emailViajeroErr = "Email inválido.";
     } else {
         $emailViajero = test_input($_POST["email"]);
     }
     if (empty($_POST["celular"])) {
         $numeroCelularViajeroErr = "Número celular es requerido.";
+    } elseif (!(preg_match('/^[0-9]{11}+$/', $_POST["celular"]))) {
+        $numeroCelularViajeroErr = "Número celular con formato incorrecto.";
     } else {
         $numeroCelularViajero = test_input($_POST["celular"]);
     }
@@ -82,9 +92,4 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
-
-//echo "<h2>Your Input:</h2>";
-//echo $espacioDisponible;
-//echo "<br>";
-
 ?>
