@@ -14,17 +14,6 @@ $regionOrigen = $comunaOrigen = $regionDestino = $comunaDestino
     = $numeroCelularViajero = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $comunaOrigen = test_input($_POST["comuna-origen"]);
-    $regionDestino = test_input($_POST["region-destino"]);
-    $comunaDestino = test_input($_POST["comuna-destino"]);
-    $fechaViaje = test_input($_POST["fecha-viaje"]);
-    $espacioDisponible = test_input($_POST["espacio-disponible"]);
-    $kilosDisponibles = test_input($_POST["kilos-disponibles"]);
-    $emailViajero = test_input($_POST["email"]);
-    $numeroCelularViajero = test_input($_POST["celular"]);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!(strcmp($_POST["region-origen"],"sin-region"))) {
         $regionOrigenErr = "Region es requerida.";
     } else {
@@ -84,6 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $numeroCelularViajero = test_input($_POST["celular"]);
     }
+    include 'insertarDatosViaje.php';
 }
 
 function test_input($data) {

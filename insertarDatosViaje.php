@@ -7,8 +7,8 @@
  */
 
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "rodro077";
+$password = "GgNBIaOXJUnR8ZMg";
 $dbname = "tarea2";
 
 // Create connection
@@ -20,14 +20,21 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO viaje (fecha_ida, fecha_regreso, origen, destino, kilos_disponible,
-  espacio_disponible, email_viajero, celular_viajero) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param( "sss",$fecha_ida, $fecha_regreso, $origen, $destino, $kilos_disponible,
+$stmt = $conn->prepare("INSERT INTO viaje (id, fecha_ida, fecha_regreso, origen, destino, kilos_disponible,
+  espacio_disponible, email_viajero, celular_viajero) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param( "sss",$id,$fecha_ida, $fecha_regreso, $origen, $destino, $kilos_disponible,
     $espacio_disponible, $email_viajero, $celular_viajero);
 
 // set parameters and execute
-$fecha_ida = $_POST["fecha"];
+$id = "";
+$fecha_ida = $_POST["fecha-viaje"];
 $fecha_regreso = "";
+$origen = $_POST["comuna-origen"];
+$destino = $_POST["comuna-destino"];
+$kilos_disponible = $_POST["kilos-disponibles"];
+$espacio_disponible = $_POST["espacio-disponible"];
+$email_viajero = $_POST["email"];
+$celular_viajero = $_POST["celular"];
 $stmt->execute();
 
 

@@ -14,18 +14,6 @@ $descripcionEncargo = $espacio = $kilos = $regionOrigen
     = $emailEncargador = $numeroCelularEncargador = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $descripcionEncargo = test_input($_POST["descripcion"]);
-    $espacio= test_input($_POST["espacio-solicitado"]);
-    $kilos= test_input($_POST["kilos-solicitados"]);
-    $regionOrigen = test_input($_POST["region-origen"]);
-    $comunaOrigen = test_input($_POST["comuna-origen"]);
-    $regionDestino = test_input($_POST["region-destino"]);
-    $comunaDestino = test_input($_POST["comuna-destino"]);
-    $emailEncargador = test_input($_POST["email"]);
-    $numeroCelularEncargador = test_input($_POST["celular"]);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["descripcion"])) {
         $descripcionEncargoErr = "Descripción es requerida.";
     } elseif (strlen($_POST["descripcion"]) > 250) {

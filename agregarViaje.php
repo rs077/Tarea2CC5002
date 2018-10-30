@@ -87,7 +87,7 @@
         <!--numero celular viajero-->
         <div class="form-group row">
             <label class="control-label" for="celular">Número celular viajero:</label>
-            <input type="text" class="form-control" id="celular" name="celular" placeholder="+569XXXXXXXX">
+            <input type="text" class="form-control" id="celular" name="celular" placeholder="569XXXXXXXX">
             <span class="error">* <?php echo $numeroCelularViajeroErr;?></span>
         </div>
         <!--boton para enviar formulario-->
