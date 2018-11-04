@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $numeroCelularViajero = test_input($_POST["celular"]);
     }
-    include 'insertarDatosViaje.php';
+
 }
 
 function test_input($data) {

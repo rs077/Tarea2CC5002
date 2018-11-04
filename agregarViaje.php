@@ -16,7 +16,13 @@
     </script>
 </head>
 <body>
-<?php include 'validacionAgregarViajeForm.php';?>
+<?php
+include 'validacionAgregarViajeForm.php';
+if(isset($_POST["submit"]))
+{
+    include 'insertarDatosViaje.php';
+}
+ ?>
 <!--barra de navegacion-->
 <div id="nav-bar"></div>
 <!--FORMULARIO AGREGAR VIAJE-->
