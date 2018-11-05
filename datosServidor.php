@@ -7,8 +7,8 @@
  */
 
 $servername = "localhost";
-$username = "rodro077";
-$password = "GgNBIaOXJUnR8ZMg";
+$username = "root";
+$password = "";
 $dbname = "tarea2";
 
 ?>
