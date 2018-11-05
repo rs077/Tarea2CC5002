@@ -80,7 +80,7 @@ jQuery(document).ready(function () {
 	jQuery('#region-destino').change(function () {
 		var iRegiones = 0;
 		var valorRegion = jQuery(this).val();
-		var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option><option value="sin-comuna">--</option>';
+		var htmlComuna = '<option value="sin-comuna">Seleccione comuna</option>';
 		jQuery.each(RegionesYcomunas.regiones, function () {
 			if (RegionesYcomunas.regiones[iRegiones].NombreRegion == valorRegion) {
 				var iComunas = 0;

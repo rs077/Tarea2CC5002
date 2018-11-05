@@ -18,11 +18,7 @@
 <body>
 <?php
 include 'validacionAgregarViajeForm.php';
-if(isset($_POST["submit"]))
-{
-    include 'insertarDatosViaje.php';
-}
- ?>
+?>
 <!--barra de navegacion-->
 <div id="nav-bar"></div>
 <!--FORMULARIO AGREGAR VIAJE-->
@@ -56,7 +52,8 @@ if(isset($_POST["submit"]))
         <!--fecha viaje-->
         <div class="form-group row">
             <label class="control-label" for="fecha-viaje">Fecha viaje:</label>
-            <input type="text" class="form-control" id="fecha-viaje" name="fecha-viaje" placeholder="aaaa-mm-dd">
+            <input type="text" class="form-control" id="fecha-viaje" name="fecha-viaje" placeholder="aaaa-mm-dd"
+                   value="<?php echo $fechaViaje;?>">
             <span class="error">* <?php echo $fechaViajeErr;?></span>
         </div>
         <!--espacio disponible-->
@@ -64,36 +61,46 @@ if(isset($_POST["submit"]))
             <label class="control-label" for="espacio-disponible">Espacio disponible:</label>
             <select class="form-control" id="espacio-disponible" name="espacio-disponible">
                 <option value="--">--</option>
-                <option value="10x10x10">10x10x10</option>
-                <option value="20x20x20">20x20x20</option>
-                <option value="30x30x30">30x30x30</option>
+                <option value="1">10x10x10</option>
+                <option value="2">20x20x20</option>
+                <option value="3">30x30x30</option>
             </select>
             <span class="error">* <?php echo $espacioDisponibleErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('espacio-disponible').value = "<?php echo $_POST["espacio-disponible"];?>";
+            </script>
         </div>
         <!--kilos disponibles-->
         <div class="form-group row">
             <label class="control-label" for="kilos-disponibles">Kilos disponibles:</label>
             <select class="form-control" id="kilos-disponibles" name="kilos-disponibles">
                 <option value="--">--</option>
-                <option value="200g">200gr</option>
-                <option value="500g">500gr</option>
-                <option value="800g">800gr</option>
-                <option value="1kg">1kg</option>
-                <option value="1.5kg">1.5kg</option>
-                <option value="2kg">2kg</option>
+                <option value="1">200 gr</option>
+                <option value="2">500 gr</option>
+                <option value="3">800 gr</option>
+                <option value="4">1 kg</option>
+                <option value="5">1.5 kg</option>
+                <option value="6">2 kg</option>
             </select>
             <span class="error">* <?php echo $kilosDisponiblesErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('kilos-disponibles').value = "<?php echo $_POST["kilos-disponibles"];?>";
+            </script>
         </div>
         <!--email viajero-->
         <div class="form-group row">
             <label class="control-label" for="email">Email viajero:</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="correo@correo.cl">
+            <input type="text" class="form-control" id="email" name="email" placeholder="correo@correo.cl" value="<?php
+            echo $emailViajero;?>">
             <span class="error">* <?php echo $emailViajeroErr;?></span>
         </div>
         <!--numero celular viajero-->
         <div class="form-group row">
             <label class="control-label" for="celular">Número celular viajero:</label>
-            <input type="text" class="form-control" id="celular" name="celular" placeholder="569XXXXXXXX">
+            <input type="text" class="form-control" id="celular" name="celular" placeholder="569XXXXXXXX" value="<?php
+            echo $numeroCelularViajero;?>">
             <span class="error">* <?php echo $numeroCelularViajeroErr;?></span>
         </div>
         <!--boton para enviar formulario-->

@@ -73,7 +73,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $numeroCelularViajero = test_input($_POST["celular"]);
     }
-
+    // CONDICION QUE VERIFICA QUE EL FORMULARIO ES VALIDO ANTES DE INSERTAR LOS DATOS
+    if(!empty($regionOrigen) && !empty($comunaOrigen) && !empty($regionDestino) && !empty($comunaDestino) &&
+        !empty($fechaViaje) && !empty($espacioDisponible) && !empty($kilosDisponibles) && !empty($emailViajero) &&
+        !empty($numeroCelularViajero)) {
+        include 'insertarDatosViaje.php';
+    }
 }
 
 function test_input($data) {
