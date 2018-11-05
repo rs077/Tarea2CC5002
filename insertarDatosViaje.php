@@ -6,11 +6,7 @@
  * Time: 14:53
  */
 
-$servername = "localhost";
-$username = "rodro077";
-$password = "GgNBIaOXJUnR8ZMg";
-$dbname = "tarea2";
-
+include 'datosServidor.php';
 $id_comuna_origen = "";
 $id_comuna_destino = "";
 
@@ -58,11 +54,6 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    //$kilos_disponible = $_POST["kilos-disponibles"];
-    //$consulta_kilos_disponible = "SELECT id FROM `kilos_encargo` WHERE valor = '".$kilos_disponible."'";
-    //$id_kilos_disponible = $conn->query($consulta_kilos_disponible);
-
     // prepare sql and bind parameters
     $stmt = $conn->prepare("INSERT INTO `viaje` (fecha_ida, origen, destino, kilos_disponible, 
     espacio_disponible, email_viajero, celular_viajero) 
@@ -85,13 +76,12 @@ try {
     $email_viajero = $_POST["email"];
     $celular_viajero = $_POST["celular"];
     $stmt->execute();
-    echo "New records created successfully";
+
 }
 catch(PDOException $e)
 {
     echo "Error: " . $e->getMessage();
 }
 $conn = null;
-
+header("Location: index.html");
 ?>
-

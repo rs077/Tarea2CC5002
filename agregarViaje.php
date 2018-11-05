@@ -16,9 +16,7 @@
     </script>
 </head>
 <body>
-<?php
-include 'validacionAgregarViajeForm.php';
-?>
+<?php include 'validacionAgregarViajeForm.php';?>
 <!--barra de navegacion-->
 <div id="nav-bar"></div>
 <!--FORMULARIO AGREGAR VIAJE-->
@@ -95,6 +93,10 @@ include 'validacionAgregarViajeForm.php';
             <input type="text" class="form-control" id="email" name="email" placeholder="correo@correo.cl" value="<?php
             echo $emailViajero;?>">
             <span class="error">* <?php echo $emailViajeroErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('email').value = "<?php echo $_POST["email"];?>";
+            </script>
         </div>
         <!--numero celular viajero-->
         <div class="form-group row">
@@ -102,12 +104,17 @@ include 'validacionAgregarViajeForm.php';
             <input type="text" class="form-control" id="celular" name="celular" placeholder="569XXXXXXXX" value="<?php
             echo $numeroCelularViajero;?>">
             <span class="error">* <?php echo $numeroCelularViajeroErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('celular').value = "<?php echo $_POST["celular"];?>";
+            </script>
         </div>
         <!--boton para enviar formulario-->
         <div class="form-group row">
             <button name=”submit” id="submit" type="submit" class="btn btn-info">Agregar viaje</button>
         </div>
     </form>
+    <?php if (count($_POST)>0) echo "Form Submitted!"; ?>
 </div>
 </body>
 </html>

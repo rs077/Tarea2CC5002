@@ -28,31 +28,43 @@
             <label class="control-label" for="descripcion">Descripción encargo:</label>
             <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="El encargo es ...">
             <span class="error">* <?php echo $descripcionEncargoErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('descripcion').value = "<?php echo $_POST["descripcion"];?>";
+            </script>
         </div>
         <!--espacio-->
         <div class="form-group row">
             <label class="control-label" for="espacio-solicitado">Espacio::</label>
             <select class="form-control" id="espacio-solicitado" name="espacio-solicitado">
                 <option value="--">--</option>
-                <option value="10x10x10">10x10x10</option>
-                <option value="20x20x20">20x20x20</option>
-                <option value="30x30x30">30x30x30</option>
+                <option value="1">10x10x10</option>
+                <option value="2">20x20x20</option>
+                <option value="3">30x30x30</option>
             </select>
             <span class="error">* <?php echo $espacioErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('espacio-solicitado').value = "<?php echo $_POST["espacio-solicitado"];?>";
+            </script>
         </div>
         <!--kilos-->
         <div class="form-group row">
             <label class="control-label" for="kilos-solicitados">Kilos:</label>
             <select class="form-control" id="kilos-solicitados" name="kilos-solicitados">
                 <option value="--">--</option>
-                <option value="200g">200gr</option>
-                <option value="500g">500gr</option>
-                <option value="800g">800gr</option>
-                <option value="1kg">1kg</option>
-                <option value="1.5kg">1.5kg</option>
-                <option value="2kg">2kg</option>
+                <option value="1">200gr</option>
+                <option value="2">500gr</option>
+                <option value="3">800gr</option>
+                <option value="4">1kg</option>
+                <option value="5">1.5kg</option>
+                <option value="6">2kg</option>
             </select>
             <span class="error">* <?php echo $kilosErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('kilos-solicitados').value = "<?php echo $_POST["kilos-solicitados"];?>";
+            </script>
         </div>
         <!--region origen-->
         <div class="form-group row">
@@ -89,18 +101,27 @@
             <label class="control-label" for="email">Email encargador:</label>
             <input type="text" class="form-control" id="email" name="email" placeholder="correo@correo.cl">
             <span class="error">* <?php echo $emailEncargadorErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('email').value = "<?php echo $_POST["email"];?>";
+            </script>
         </div>
         <!--numero celular encargador-->
         <div class="form-group row">
             <label class="control-label" for="celular">Número celular encargador:</label>
             <input type="text" class="form-control" id="celular" name="celular" placeholder="569XXXXXXXX">
             <span class="error">* <?php echo $numeroCelularEncargadorErr;?></span>
+            <!--scrip para mantener el valor insertado si el formulario no se envia-->
+            <script type="text/javascript">
+                document.getElementById('celular').value = "<?php echo $_POST["celular"];?>";
+            </script>
         </div>
         <!--boton para enviar formulario-->
         <div class="form-group row">
             <button name=”submit” id="submit" type="submit" class="btn btn-info">Agregar encargo</button>
         </div>
     </form>
+    <?php if (count($_POST)>0) echo "Form Submitted!"; ?>
 </div>
 </body>
 </html>

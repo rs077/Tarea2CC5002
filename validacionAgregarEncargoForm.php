@@ -57,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $comunaDestino = test_input($_POST["comuna-destino"]);
     }
-    if (empty($_FILES["foto-encargo"]["name"])) {
-        $fotoEncargoErr = "Imagen de encargo requerida.";
-    } else {
-        $fotoEncargoErr = checkImage();
-    }
+    //if (empty($_FILES["foto-encargo"]["name"])) {
+    //    $fotoEncargoErr = "Imagen de encargo requerida.";
+    //} else {
+    //    $fotoEncargoErr = checkImage();
+    //}
     if (empty($_POST["email"])) {
         $emailEncargadorErr = "Email es requerido.";
     } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -76,7 +76,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $numeroCelularEncargador = test_input($_POST["celular"]);
     }
+    // CONDICION QUE VERIFICA QUE EL FORMULARIO ES VALIDO ANTES DE INSERTAR LOS DATOS
+    if(!empty($descripcionEncargo) && !empty($regionOrigen) && !empty($comunaOrigen) && !empty($regionDestino) &&
+        !empty($comunaDestino) && !empty($espacio) && !empty($kilos) && !empty($emailEncargador) &&
+        !empty($numeroCelularEncargador)) {
+        include 'insertarDatosEncargo.php';
+    }
 }
+
+/*
+ * $descripcionEncargo = $espacio = $kilos = $regionOrigen
+    = $comunaOrigen = $regionDestino = $comunaDestino = $fotoEncargo
+    = $emailEncargador = $numeroCelularEncargador = "";
+ *
+ *
+ */
 
 function test_input($data) {
     $data = trim($data); // elimina los caracteres innecesarios (espacio extra, tabulador, nueva línea)
