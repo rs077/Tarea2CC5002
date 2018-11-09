@@ -1,11 +1,8 @@
-<?php
-header ('Content-type: text/html; charset=utf-8');
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Fila1</title>
+    <title>Detalle Viaje</title>
     <link rel="stylesheet" type="text/css" href="css/vistaDetalles.css">
     <link rel="stylesheet" type="text/css" href="css/boostrapV4w3cFix.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -31,10 +28,16 @@ if ($conn->connect_error) {
 }
 $conn->set_charset("utf8");
 $sql = "SELECT r1.nombre, c1.nombre, r2.nombre, c2.nombre, v1.fecha_ida, e1.valor, k1.valor, 
-    v1.email_viajero, v1.celular_viajero FROM `viaje` v1, `region` r1,`comuna` c1, `region` r2,
-    `comuna` c2, `kilos_encargo` k1, `espacio_encargo` e1 WHERE c1.id=origen AND c2.id=destino 
-    AND k1.id=kilos_disponible AND e1.id=espacio_disponible AND v1.id=". $_GET["id"] ." 
-    AND r1.id = c1.region_id AND r2.id = c2.region_id";
+    v1.email_viajero, v1.celular_viajero 
+    FROM `viaje` v1, `region` r1,`comuna` c1, `region` r2,
+    `comuna` c2, `kilos_encargo` k1, `espacio_encargo` e1 
+    WHERE c1.id=origen 
+    AND c2.id=destino 
+    AND k1.id=kilos_disponible 
+    AND e1.id=espacio_disponible 
+    AND v1.id=". $_GET["id"] ." 
+    AND r1.id = c1.region_id 
+    AND r2.id = c2.region_id";
 
 $result = $conn->query($sql);
 

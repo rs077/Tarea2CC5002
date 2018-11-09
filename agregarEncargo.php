@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="js/regionesYcomunas.js"></script>
-    <!-- <script src="js/validacionAgregarEncargoForm.js"></script> -->
+    <script src="js/validacionAgregarEncargoForm.js"></script>
     <script>
         $(function(){
             $("#nav-bar").load("barraNavegacion.html");
@@ -22,7 +22,7 @@
 <!--FORMULARIO AGREGAR ENCARGO-->
 <div id="agregarEncargo" class="container">
     <form name="formAgregarEncargo" id="formAgregarEncargo" class="form-horizontal" onsubmit="return validateForm()"
-          enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+          action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
         <!--descripcion encargo-->
         <div class="form-group row">
             <label class="control-label" for="descripcion">Descripción encargo:</label>
@@ -92,8 +92,8 @@
         </div>
         <!--foto encargo-->
         <div class="form-group row">
-            <label class="control-label" for="foto-encargo">Foto encargo:</label>
-            <input type="file" accept="image/*" class="form-control" id="foto-encargo" name="foto-encargo">
+            <input type="file" value="Foto encargo:" accept="image/*" class="form-control" id="foto-encargo"
+                   name="foto-encargo">
             <span class="error">* <?php echo $fotoEncargoErr;?></span>
         </div>
         <!--email encargador-->
@@ -121,7 +121,7 @@
             <button name=”submit” id="submit" type="submit" class="btn btn-info">Agregar encargo</button>
         </div>
     </form>
-    <?php if (count($_POST)>0) echo "Form Submitted!"; ?>
+
 </div>
 </body>
 </html>

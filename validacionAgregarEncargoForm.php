@@ -57,11 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $comunaDestino = test_input($_POST["comuna-destino"]);
     }
-    //if (empty($_FILES["foto-encargo"]["name"])) {
-    //    $fotoEncargoErr = "Imagen de encargo requerida.";
-    //} else {
-    //    $fotoEncargoErr = checkImage();
-    //}
     if (empty($_POST["email"])) {
         $emailEncargadorErr = "Email es requerido.";
     } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -84,46 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-/*
- * $descripcionEncargo = $espacio = $kilos = $regionOrigen
-    = $comunaOrigen = $regionDestino = $comunaDestino = $fotoEncargo
-    = $emailEncargador = $numeroCelularEncargador = "";
- *
- *
- */
-
 function test_input($data) {
     $data = trim($data); // elimina los caracteres innecesarios (espacio extra, tabulador, nueva línea)
     $data = stripslashes($data); // elimina las barras diagonales inversas
     $data = htmlspecialchars($data);
     return $data;
-}
-
-function checkImage() {
-    $target_dir = "images/";
-    $target_file = $target_dir . basename($_FILES["foto-encargo"]["name"]);
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["foto-encargo"]["tmp_name"]);
-        if($check == false) {
-            return "Archivo no es una imagen.";
-        }
-    }
-// Check file size
-    if ($_FILES["foto-encargo"]["size"] > 500000) {
-        return "El archivo es muy grande.";
-    }
-// Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ) {
-        return "Sólo formatos JPG, JPEG, PNG & GIF están permitidos.";
-    }
-
-// if everything is ok, try to upload file
-    elseif (!(move_uploaded_file($_FILES["foto-encargo"]["tmp_name"], $target_file))) {
-        return "Hubo un error al intertar subir el archivo.";
-    }
-    return "";
 }
 ?>
